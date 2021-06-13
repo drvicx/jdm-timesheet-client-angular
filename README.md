@@ -26,7 +26,6 @@ Timesheet 2.0 TypeScript Angular REST-Client for Timesheet 2.0 Cloud REST-Servic
   TypeScript v4.3.1 <br>
   TypeScript Compiler (tsc) v4.3.2 <br>
   Angular CLI v12.0.3 <br>
-  <br>
   
 - Available endpoints (local): <br>
   1 - [Домашняя страница Angular-приложения](http://localhost:4200) <br>
