@@ -5,10 +5,19 @@ Timesheet 2.0 TypeScript Angular REST-Client for Timesheet 2.0 Cloud REST-Servic
 **=CHANGE LOG**<br>
 *new at the beginning <br>
 
-01: 20210613_0630:
-- создан каркас Angular-приложения в стиле "HelloWorld";<br>
-  <br>
+02: 20210614_2150:
+<pre>
+- добавлены модули для работы с REST-сервисами User и Timedata;
+- реализованы компоненты для чтения единичной записи из каждого сервиса;
+- реализованы базовые CSS-стили для табличного вывода данных;
+- далее: реализация вывода списком всех записей из REST-сервисов User и Timedata;
+</pre>
 
+01: 20210613_0630:
+<pre>
+- создан каркас Angular-приложения в стиле "HelloWorld";
+</pre>
+<br>
 
 **=INFO**
 
@@ -29,4 +38,3 @@ Timesheet 2.0 TypeScript Angular REST-Client for Timesheet 2.0 Cloud REST-Servic
   TypeScript v4.3.1 <br>
   TypeScript Compiler (tsc) v4.3.2 <br>
   Angular CLI v12.0.3
-  
