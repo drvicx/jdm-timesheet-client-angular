@@ -5,15 +5,13 @@ Timesheet 2.0 TypeScript Angular REST-Client for Timesheet 2.0 Cloud REST-Servic
 **=CHANGE LOG**<br>
 *new at the beginning <br>
 
---: текущее preview приложения:  
-
 03: 20210623_1420:
 <pre>
 - все клиенты и компоненты сгенерированы повторно, т.к. на бакенде изменилась Модель;
 - расширены REST-поля и операции для работы с сервисами User и Timedata;
 - реализована работа с сервисом Orgdata (вывод единичной записи);
 - изменена компоновка элементов UI приложения;
-- добавлен скриншот текущего состояния приложения (_preview/app-preview_20210623_1420.png)
+- добавлен скриншот текущего состояния приложения (_preview/app-preview_20210623_1420.png) -- см.внизу;
 - далее: реализация вывода списком всех записей из REST-сервисов User и Timedata;
 </pre>
 
@@ -48,4 +46,8 @@ Timesheet 2.0 TypeScript Angular REST-Client for Timesheet 2.0 Cloud REST-Servic
   Node Package Manager (npm) v6.14.13 <br>
   TypeScript v4.3.1 <br>
   TypeScript Compiler (tsc) v4.3.2 <br>
-  Angular CLI v12.0.3
+  Angular CLI v12.0.3 <br>
+
+**=APP CURRENT VIEW**
+
+- ![предпосмотр](_preview/app-preview_20210623_1420.png?raw=true)
