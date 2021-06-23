@@ -17,9 +17,10 @@ import { User } from '../models/user';
 })
 class UserRestControllerService extends __BaseService {
   static readonly addUserUsingPOSTPath = '/users/add';
+  static readonly findAllUsingGETPath = '/users/all';
   static readonly deleteUserUsingDELETEPath = '/users/delete/{userId}';
-  static readonly findAllUsingGETPath = '/users/getall';
-  static readonly getUserUsingGETPath = '/users/getsingle/{userId}';
+  static readonly getUserByIdUsingGETPath = '/users/id/{userId}';
+  static readonly getUserByPersonalNumberUsingGETPath = '/users/num/{personalNumber}';
   static readonly updateUserUsingPUTPath = '/users/update/{userId}';
 
   constructor(
@@ -68,6 +69,41 @@ class UserRestControllerService extends __BaseService {
   }
 
   /**
+   * findAll
+   * @return OK
+   */
+  findAllUsingGETResponse(): __Observable<__StrictHttpResponse<Array<User>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/users/all`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<User>>;
+      })
+    );
+  }
+  /**
+   * findAll
+   * @return OK
+   */
+  findAllUsingGET(): __Observable<Array<User>> {
+    return this.findAllUsingGETResponse().pipe(
+      __map(_r => _r.body as Array<User>)
+    );
+  }
+
+  /**
    * deleteUser
    * @param userId userId
    * @return OK
@@ -106,53 +142,18 @@ class UserRestControllerService extends __BaseService {
   }
 
   /**
-   * findAll
-   * @return OK
-   */
-  findAllUsingGETResponse(): __Observable<__StrictHttpResponse<Array<User>>> {
-    let __params = this.newParams();
-    let __headers = new HttpHeaders();
-    let __body: any = null;
-    let req = new HttpRequest<any>(
-      'GET',
-      this.rootUrl + `/users/getall`,
-      __body,
-      {
-        headers: __headers,
-        params: __params,
-        responseType: 'json'
-      });
-
-    return this.http.request<any>(req).pipe(
-      __filter(_r => _r instanceof HttpResponse),
-      __map((_r) => {
-        return _r as __StrictHttpResponse<Array<User>>;
-      })
-    );
-  }
-  /**
-   * findAll
-   * @return OK
-   */
-  findAllUsingGET(): __Observable<Array<User>> {
-    return this.findAllUsingGETResponse().pipe(
-      __map(_r => _r.body as Array<User>)
-    );
-  }
-
-  /**
-   * getUser
+   * getUserById
    * @param userId userId
    * @return OK
    */
-  getUserUsingGETResponse(userId: number): __Observable<__StrictHttpResponse<User>> {
+  getUserByIdUsingGETResponse(userId: number): __Observable<__StrictHttpResponse<User>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/users/getsingle/${encodeURIComponent(String(userId))}`,
+      this.rootUrl + `/users/id/${encodeURIComponent(String(userId))}`,
       __body,
       {
         headers: __headers,
@@ -168,12 +169,50 @@ class UserRestControllerService extends __BaseService {
     );
   }
   /**
-   * getUser
+   * getUserById
    * @param userId userId
    * @return OK
    */
-  getUserUsingGET(userId: number): __Observable<User> {
-    return this.getUserUsingGETResponse(userId).pipe(
+  getUserByIdUsingGET(userId: number): __Observable<User> {
+    return this.getUserByIdUsingGETResponse(userId).pipe(
+      __map(_r => _r.body as User)
+    );
+  }
+
+  /**
+   * getUserByPersonalNumber
+   * @param personalNumber personalNumber
+   * @return OK
+   */
+  getUserByPersonalNumberUsingGETResponse(personalNumber: number): __Observable<__StrictHttpResponse<User>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/users/num/${encodeURIComponent(String(personalNumber))}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<User>;
+      })
+    );
+  }
+  /**
+   * getUserByPersonalNumber
+   * @param personalNumber personalNumber
+   * @return OK
+   */
+  getUserByPersonalNumberUsingGET(personalNumber: number): __Observable<User> {
+    return this.getUserByPersonalNumberUsingGETResponse(personalNumber).pipe(
       __map(_r => _r.body as User)
     );
   }

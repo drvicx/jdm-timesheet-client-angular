@@ -1,0 +1,14 @@
+.nveBasicContainer {
+    border: 1px solid #cccccc;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.nveBasicHeader {
+    display: block;
+    border-bottom: 1px solid #cccccc;
+    padding: 3px 0 3px 4px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}

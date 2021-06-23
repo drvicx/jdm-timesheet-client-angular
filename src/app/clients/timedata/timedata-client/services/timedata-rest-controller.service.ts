@@ -17,10 +17,13 @@ import { Timedata } from '../models/timedata';
 })
 class TimedataRestControllerService extends __BaseService {
   static readonly addTimedataUsingPOSTPath = '/timedata/add';
+  static readonly findAllUsingGETPath = '/timedata/all';
+  static readonly getTimedataByDateUsingGETPath = '/timedata/date/{date}';
   static readonly deleteTimedataUsingDELETEPath = '/timedata/delete/{timedataId}';
-  static readonly findAllUsingGETPath = '/timedata/getall';
-  static readonly getTimedataUsingGETPath = '/timedata/getsingle/{timedataId}';
+  static readonly getTimedataByIdUsingGETPath = '/timedata/id/{timedataId}';
   static readonly updateTimedataUsingPUTPath = '/timedata/update/{timedataId}';
+  static readonly getTimedataByUserIdAndDateUsingGETPath = '/timedata/userdate/{userId}/{date}';
+  static readonly getTimedataByUserIdUsingGETPath = '/timedata/userid/{userId}';
 
   constructor(
     config: __Configuration,
@@ -68,6 +71,79 @@ class TimedataRestControllerService extends __BaseService {
   }
 
   /**
+   * findAll
+   * @return OK
+   */
+  findAllUsingGETResponse(): __Observable<__StrictHttpResponse<Array<Timedata>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/timedata/all`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<Timedata>>;
+      })
+    );
+  }
+  /**
+   * findAll
+   * @return OK
+   */
+  findAllUsingGET(): __Observable<Array<Timedata>> {
+    return this.findAllUsingGETResponse().pipe(
+      __map(_r => _r.body as Array<Timedata>)
+    );
+  }
+
+  /**
+   * getTimedataByDate
+   * @param date date
+   * @return OK
+   */
+  getTimedataByDateUsingGETResponse(date: string): __Observable<__StrictHttpResponse<Array<Timedata>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/timedata/date/${encodeURIComponent(String(date))}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<Timedata>>;
+      })
+    );
+  }
+  /**
+   * getTimedataByDate
+   * @param date date
+   * @return OK
+   */
+  getTimedataByDateUsingGET(date: string): __Observable<Array<Timedata>> {
+    return this.getTimedataByDateUsingGETResponse(date).pipe(
+      __map(_r => _r.body as Array<Timedata>)
+    );
+  }
+
+  /**
    * deleteTimedata
    * @param timedataId timedataId
    * @return OK
@@ -106,53 +182,18 @@ class TimedataRestControllerService extends __BaseService {
   }
 
   /**
-   * findAll
-   * @return OK
-   */
-  findAllUsingGETResponse(): __Observable<__StrictHttpResponse<Array<Timedata>>> {
-    let __params = this.newParams();
-    let __headers = new HttpHeaders();
-    let __body: any = null;
-    let req = new HttpRequest<any>(
-      'GET',
-      this.rootUrl + `/timedata/getall`,
-      __body,
-      {
-        headers: __headers,
-        params: __params,
-        responseType: 'json'
-      });
-
-    return this.http.request<any>(req).pipe(
-      __filter(_r => _r instanceof HttpResponse),
-      __map((_r) => {
-        return _r as __StrictHttpResponse<Array<Timedata>>;
-      })
-    );
-  }
-  /**
-   * findAll
-   * @return OK
-   */
-  findAllUsingGET(): __Observable<Array<Timedata>> {
-    return this.findAllUsingGETResponse().pipe(
-      __map(_r => _r.body as Array<Timedata>)
-    );
-  }
-
-  /**
-   * getTimedata
+   * getTimedataById
    * @param timedataId timedataId
    * @return OK
    */
-  getTimedataUsingGETResponse(timedataId: number): __Observable<__StrictHttpResponse<Timedata>> {
+  getTimedataByIdUsingGETResponse(timedataId: number): __Observable<__StrictHttpResponse<Timedata>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/timedata/getsingle/${encodeURIComponent(String(timedataId))}`,
+      this.rootUrl + `/timedata/id/${encodeURIComponent(String(timedataId))}`,
       __body,
       {
         headers: __headers,
@@ -168,12 +209,12 @@ class TimedataRestControllerService extends __BaseService {
     );
   }
   /**
-   * getTimedata
+   * getTimedataById
    * @param timedataId timedataId
    * @return OK
    */
-  getTimedataUsingGET(timedataId: number): __Observable<Timedata> {
-    return this.getTimedataUsingGETResponse(timedataId).pipe(
+  getTimedataByIdUsingGET(timedataId: number): __Observable<Timedata> {
+    return this.getTimedataByIdUsingGETResponse(timedataId).pipe(
       __map(_r => _r.body as Timedata)
     );
   }
@@ -226,6 +267,93 @@ class TimedataRestControllerService extends __BaseService {
       __map(_r => _r.body as Timedata)
     );
   }
+
+  /**
+   * getTimedataByUserIdAndDate
+   * @param params The `TimedataRestControllerService.GetTimedataByUserIdAndDateUsingGETParams` containing the following parameters:
+   *
+   * - `userId`: userId
+   *
+   * - `date`: date
+   *
+   * @return OK
+   */
+  getTimedataByUserIdAndDateUsingGETResponse(params: TimedataRestControllerService.GetTimedataByUserIdAndDateUsingGETParams): __Observable<__StrictHttpResponse<Timedata>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/timedata/userdate/${encodeURIComponent(String(params.userId))}/${encodeURIComponent(String(params.date))}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Timedata>;
+      })
+    );
+  }
+  /**
+   * getTimedataByUserIdAndDate
+   * @param params The `TimedataRestControllerService.GetTimedataByUserIdAndDateUsingGETParams` containing the following parameters:
+   *
+   * - `userId`: userId
+   *
+   * - `date`: date
+   *
+   * @return OK
+   */
+  getTimedataByUserIdAndDateUsingGET(params: TimedataRestControllerService.GetTimedataByUserIdAndDateUsingGETParams): __Observable<Timedata> {
+    return this.getTimedataByUserIdAndDateUsingGETResponse(params).pipe(
+      __map(_r => _r.body as Timedata)
+    );
+  }
+
+  /**
+   * getTimedataByUserId
+   * @param userId userId
+   * @return OK
+   */
+  getTimedataByUserIdUsingGETResponse(userId: number): __Observable<__StrictHttpResponse<Array<Timedata>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/timedata/userid/${encodeURIComponent(String(userId))}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<Timedata>>;
+      })
+    );
+  }
+  /**
+   * getTimedataByUserId
+   * @param userId userId
+   * @return OK
+   */
+  getTimedataByUserIdUsingGET(userId: number): __Observable<Array<Timedata>> {
+    return this.getTimedataByUserIdUsingGETResponse(userId).pipe(
+      __map(_r => _r.body as Array<Timedata>)
+    );
+  }
 }
 
 module TimedataRestControllerService {
@@ -244,6 +372,22 @@ module TimedataRestControllerService {
      * theTimedata
      */
     theTimedata: Timedata;
+  }
+
+  /**
+   * Parameters for getTimedataByUserIdAndDateUsingGET
+   */
+  export interface GetTimedataByUserIdAndDateUsingGETParams {
+
+    /**
+     * userId
+     */
+    userId: number;
+
+    /**
+     * date
+     */
+    date: string;
   }
 }
 

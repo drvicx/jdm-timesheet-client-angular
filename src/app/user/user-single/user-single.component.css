@@ -1,18 +1,18 @@
 #nveComponentContainer {
-    border: 1px solid #cccccc;
-    margin-left: 10px;
-    margin-top:15px;
-    margin-bottom: 25px;
+  border: 1px solid #cccccc;
+  margin-left: 10px;
+  /*margin-top:15px;*/
+  margin-bottom: 25px;
 }
 
 .nveComponentHeader {
-    display: block;
-    border-bottom: 1px solid #cccccc;
-    padding: 3px 0 3px 4px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    text-align: left;
-    color: #c00000;
+  display: block;
+  border-bottom: 1px solid #cccccc;
+  padding: 3px 0 3px 4px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: left;
+  color: #c00000;
 }
 
 /**
@@ -48,4 +48,3 @@
   background-color: #1976D2;      /*--SkyBlue*/
   color: white;
 }
-
