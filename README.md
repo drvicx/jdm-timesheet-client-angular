@@ -50,4 +50,4 @@ Timesheet 2.0 TypeScript Angular REST-Client for Timesheet 2.0 Cloud REST-Servic
 
 **=APP CURRENT VIEW**
 
-- ![предпосмотр](_preview/app-preview_20210623_1420.png?raw=true)
+![предпосмотр](_preview/app-preview_20210623_1420.png?raw=true)
