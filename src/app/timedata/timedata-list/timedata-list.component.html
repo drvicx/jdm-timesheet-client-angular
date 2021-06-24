@@ -1,3 +1,30 @@
 <div id="nveComponentContainer">
     <span class="nveComponentHeader">TIMEDATA-LIST COMPONENT</span>
+
+  <table id="timedata">
+    <tr>
+      <th>ID</th>
+      <th>DATE</th>
+      <th>USERID</th>
+      <th>HOUR</th>
+      <th>TYPE</th>
+    </tr>
+
+    <!--
+      BUG:
+      - IntelliJ IDEA показывает Weak Warning: Unresolved variable userId
+        и предлагает заменить на Indexer Access синтаксис (см.ниже),
+        но вывод работает и в такой форму как: {{timedata.userId}};
+    -->
+    <tr *ngFor="let timedata of timedatas">
+      <td>{{timedata.id}}</td>
+      <td>{{timedata.date}}</td>
+      <!--<td>{{timedata.userId}}</td>-->
+      <td>{{timedata["userId"]}}</td>
+      <td>{{timedata.hour}}</td>
+      <td>{{timedata.type}}</td>
+    </tr>
+
+  </table>
+
 </div>

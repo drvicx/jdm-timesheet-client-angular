@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Timedata } from "../../clients/timedata/timedata-client/models/timedata";
 import { TimedataRestControllerService } from "../../clients/timedata/timedata-client/services/timedata-rest-controller.service";
-import {User} from "../../clients/user/user-client/models/user";
-import {UserRestControllerService} from "../../clients/user/user-client/services/user-rest-controller.service";
 
 
 @Component({
