@@ -1,15 +1,50 @@
 #nveComponentContainer {
-    border: 1px solid #cccccc;
-    margin-left: 10px;
-    margin-bottom: 25px;
+  border: 1px solid #cccccc;
+  margin-left: 10px;
+  margin-top:15px;
+  margin-bottom: 25px;
+  width: 97%;
 }
 
 .nveComponentHeader {
-    display: block;
-    border-bottom: 1px solid #cccccc;
-    padding: 3px 0 3px 4px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    text-align: left;
-    color: #c00000;
+  display: block;
+  border-bottom: 1px solid #cccccc;
+  padding: 3px 0 3px 4px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: left;
+  color: #c00000;
+}
+
+/**
+ *=TABLE OUTPUT
+ * https://www.w3schools.com/css/css_table.asp
+ * https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy
+*/
+#timedata {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 99%;
+  margin: 0 0 20px 10px;   /* top right bottom left*/
+}
+
+#timedata td, #timedata th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#timedata tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#timedata tr:hover {
+  background-color: #ddd;
+}
+
+#timedata th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #1976D2;      /*--SkyBlue*/
+  color: white;
 }
