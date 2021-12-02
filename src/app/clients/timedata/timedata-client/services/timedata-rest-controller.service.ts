@@ -16,14 +16,23 @@ import { Timedata } from '../models/timedata';
   providedIn: 'root',
 })
 class TimedataRestControllerService extends __BaseService {
-  static readonly addTimedataUsingPOSTPath = '/timedata/add';
-  static readonly findAllUsingGETPath = '/timedata/all';
-  static readonly getTimedataByDateUsingGETPath = '/timedata/date/{date}';
-  static readonly deleteTimedataUsingDELETEPath = '/timedata/delete/{timedataId}';
-  static readonly getTimedataByIdUsingGETPath = '/timedata/id/{timedataId}';
-  static readonly updateTimedataUsingPUTPath = '/timedata/update/{timedataId}';
-  static readonly getTimedataByUserIdAndDateUsingGETPath = '/timedata/userdate/{userId}/{date}';
-  static readonly getTimedataByUserIdUsingGETPath = '/timedata/userid/{userId}';
+  //static readonly addTimedataUsingPOSTPath = '/timedata/add';
+  //static readonly findAllUsingGETPath = '/timedata/all';
+  //static readonly getTimedataByDateUsingGETPath = '/timedata/date/{date}';
+  //static readonly deleteTimedataUsingDELETEPath = '/timedata/delete/{timedataId}';
+  //static readonly getTimedataByIdUsingGETPath = '/timedata/id/{timedataId}';
+  //static readonly updateTimedataUsingPUTPath = '/timedata/update/{timedataId}';
+  //static readonly getTimedataByUserIdAndDateUsingGETPath = '/timedata/userdate/{userId}/{date}';
+  //static readonly getTimedataByUserIdUsingGETPath = '/timedata/userid/{userId}';
+
+  static readonly addTimedataUsingPOSTPath = '/add';
+  static readonly findAllUsingGETPath = '/all';
+  static readonly getTimedataByDateUsingGETPath = '/date/{date}';
+  static readonly deleteTimedataUsingDELETEPath = '/delete/{timedataId}';
+  static readonly getTimedataByIdUsingGETPath = '/id/{timedataId}';
+  static readonly updateTimedataUsingPUTPath = '/update/{timedataId}';
+  static readonly getTimedataByUserIdAndDateUsingGETPath = '/userdate/{userId}/{date}';
+  static readonly getTimedataByUserIdUsingGETPath = '/userid/{userId}';
 
   constructor(
     config: __Configuration,
@@ -44,7 +53,8 @@ class TimedataRestControllerService extends __BaseService {
     __body = theTimedata;
     let req = new HttpRequest<any>(
       'POST',
-      this.rootUrl + `/timedata/add`,
+      //this.rootUrl + `/timedata/add`,
+      this.rootUrl + `/add`,
       __body,
       {
         headers: __headers,
@@ -80,7 +90,8 @@ class TimedataRestControllerService extends __BaseService {
     let __body: any = null;
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/timedata/all`,
+      //this.rootUrl + `/timedata/all`,
+      this.rootUrl + `/all`,
       __body,
       {
         headers: __headers,
@@ -117,7 +128,8 @@ class TimedataRestControllerService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/timedata/date/${encodeURIComponent(String(date))}`,
+      //this.rootUrl + `/timedata/date/${encodeURIComponent(String(date))}`,
+      this.rootUrl + `/date/${encodeURIComponent(String(date))}`,
       __body,
       {
         headers: __headers,
@@ -155,7 +167,8 @@ class TimedataRestControllerService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'DELETE',
-      this.rootUrl + `/timedata/delete/${encodeURIComponent(String(timedataId))}`,
+      //this.rootUrl + `/timedata/delete/${encodeURIComponent(String(timedataId))}`,
+      this.rootUrl + `/delete/${encodeURIComponent(String(timedataId))}`,
       __body,
       {
         headers: __headers,
@@ -193,7 +206,8 @@ class TimedataRestControllerService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/timedata/id/${encodeURIComponent(String(timedataId))}`,
+      //this.rootUrl + `/timedata/id/${encodeURIComponent(String(timedataId))}`,
+      this.rootUrl + `/id/${encodeURIComponent(String(timedataId))}`,
       __body,
       {
         headers: __headers,
@@ -237,7 +251,8 @@ class TimedataRestControllerService extends __BaseService {
     __body = params.theTimedata;
     let req = new HttpRequest<any>(
       'PUT',
-      this.rootUrl + `/timedata/update/${encodeURIComponent(String(params.timedataId))}`,
+      //this.rootUrl + `/timedata/update/${encodeURIComponent(String(params.timedataId))}`,
+      this.rootUrl + `/update/${encodeURIComponent(String(params.timedataId))}`,
       __body,
       {
         headers: __headers,
@@ -286,7 +301,8 @@ class TimedataRestControllerService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/timedata/userdate/${encodeURIComponent(String(params.userId))}/${encodeURIComponent(String(params.date))}`,
+      //this.rootUrl + `/timedata/userdate/${encodeURIComponent(String(params.userId))}/${encodeURIComponent(String(params.date))}`,
+      this.rootUrl + `/userdate/${encodeURIComponent(String(params.userId))}/${encodeURIComponent(String(params.date))}`,
       __body,
       {
         headers: __headers,
@@ -329,7 +345,8 @@ class TimedataRestControllerService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/timedata/userid/${encodeURIComponent(String(userId))}`,
+      //this.rootUrl + `/timedata/userid/${encodeURIComponent(String(userId))}`,
+      this.rootUrl + `/userid/${encodeURIComponent(String(userId))}`,
       __body,
       {
         headers: __headers,

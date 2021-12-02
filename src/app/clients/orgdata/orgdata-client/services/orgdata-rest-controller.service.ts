@@ -16,11 +16,17 @@ import { Orgdata } from '../models/orgdata';
   providedIn: 'root',
 })
 class OrgdataRestControllerService extends __BaseService {
-  static readonly addOrgdataUsingPOSTPath = '/orgdata/add';
-  static readonly findAllUsingGETPath = '/orgdata/all';
-  static readonly deleteOrgdataUsingDELETEPath = '/orgdata/delete/{orgdataId}';
-  static readonly getOrgdataByIdUsingGETPath = '/orgdata/id/{orgdataId}';
-  static readonly updateOrgdataUsingPUTPath = '/orgdata/update/{orgdataId}';
+  //static readonly addOrgdataUsingPOSTPath = '/orgdata/add';
+  //static readonly findAllUsingGETPath = '/orgdata/all';
+  //static readonly deleteOrgdataUsingDELETEPath = '/orgdata/delete/{orgdataId}';
+  //static readonly getOrgdataByIdUsingGETPath = '/orgdata/id/{orgdataId}';
+  //static readonly updateOrgdataUsingPUTPath = '/orgdata/update/{orgdataId}';
+
+  static readonly addOrgdataUsingPOSTPath = '/add';
+  static readonly findAllUsingGETPath = '/all';
+  static readonly deleteOrgdataUsingDELETEPath = '/delete/{orgdataId}';
+  static readonly getOrgdataByIdUsingGETPath = '/id/{orgdataId}';
+  static readonly updateOrgdataUsingPUTPath = '/update/{orgdataId}';
 
   constructor(
     config: __Configuration,
@@ -41,7 +47,8 @@ class OrgdataRestControllerService extends __BaseService {
     __body = theOrgdata;
     let req = new HttpRequest<any>(
       'POST',
-      this.rootUrl + `/orgdata/add`,
+      //this.rootUrl + `/orgdata/add`,
+      this.rootUrl + `/add`,
       __body,
       {
         headers: __headers,
@@ -77,7 +84,8 @@ class OrgdataRestControllerService extends __BaseService {
     let __body: any = null;
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/orgdata/all`,
+      //this.rootUrl + `/orgdata/all`,
+      this.rootUrl + `/all`,
       __body,
       {
         headers: __headers,
@@ -114,7 +122,8 @@ class OrgdataRestControllerService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'DELETE',
-      this.rootUrl + `/orgdata/delete/${encodeURIComponent(String(orgdataId))}`,
+      //this.rootUrl + `/orgdata/delete/${encodeURIComponent(String(orgdataId))}`,
+      this.rootUrl + `/delete/${encodeURIComponent(String(orgdataId))}`,
       __body,
       {
         headers: __headers,
@@ -152,7 +161,8 @@ class OrgdataRestControllerService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/orgdata/id/${encodeURIComponent(String(orgdataId))}`,
+      //this.rootUrl + `/orgdata/id/${encodeURIComponent(String(orgdataId))}`,
+      this.rootUrl + `/id/${encodeURIComponent(String(orgdataId))}`,
       __body,
       {
         headers: __headers,
@@ -196,7 +206,8 @@ class OrgdataRestControllerService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'PUT',
-      this.rootUrl + `/orgdata/update/${encodeURIComponent(String(params.orgdataId))}`,
+      //this.rootUrl + `/orgdata/update/${encodeURIComponent(String(params.orgdataId))}`,
+      this.rootUrl + `/update/${encodeURIComponent(String(params.orgdataId))}`,
       __body,
       {
         headers: __headers,

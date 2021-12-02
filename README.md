@@ -5,6 +5,15 @@ Timesheet 2.0 TypeScript Angular REST-Client for Timesheet 2.0 Cloud REST-Servic
 **=CHANGE LOG**<br>
 *new at the beginning <br>
 
+05: 20211202_1847:
+<pre>
+- после того как на REST-бакенде были сокращены URL в эндпоинтах, Angualar-клиент перестал отображать данные;
+- внесены исправления в конфигурации Angular-сервисов:
+  orgdata-rest-controller.service.ts,
+  user-rest-controller.service.ts,
+  timedata-rest-controller.service.ts;
+</pre>
+
 04: 20210624_1340:
 <pre>
 - реализован вывод списком всех записей из REST-сервисов User и Timedata;

@@ -16,12 +16,19 @@ import { User } from '../models/user';
   providedIn: 'root',
 })
 class UserRestControllerService extends __BaseService {
-  static readonly addUserUsingPOSTPath = '/users/add';
-  static readonly findAllUsingGETPath = '/users/all';
-  static readonly deleteUserUsingDELETEPath = '/users/delete/{userId}';
-  static readonly getUserByIdUsingGETPath = '/users/id/{userId}';
-  static readonly getUserByPersonalNumberUsingGETPath = '/users/num/{personalNumber}';
-  static readonly updateUserUsingPUTPath = '/users/update/{userId}';
+  //static readonly addUserUsingPOSTPath = '/users/add';
+  //static readonly findAllUsingGETPath = '/users/all';
+  //static readonly deleteUserUsingDELETEPath = '/users/delete/{userId}';
+  //static readonly getUserByIdUsingGETPath = '/users/id/{userId}';
+  //static readonly getUserByPersonalNumberUsingGETPath = '/users/num/{personalNumber}';
+  //static readonly updateUserUsingPUTPath = '/users/update/{userId}';
+
+  static readonly addUserUsingPOSTPath = '/add';
+  static readonly findAllUsingGETPath = '/all';
+  static readonly deleteUserUsingDELETEPath = '/delete/{userId}';
+  static readonly getUserByIdUsingGETPath = '/id/{userId}';
+  static readonly getUserByPersonalNumberUsingGETPath = '/num/{personalNumber}';
+  static readonly updateUserUsingPUTPath = '/update/{userId}';
 
   constructor(
     config: __Configuration,
@@ -42,7 +49,8 @@ class UserRestControllerService extends __BaseService {
     __body = theUser;
     let req = new HttpRequest<any>(
       'POST',
-      this.rootUrl + `/users/add`,
+      //this.rootUrl + `/users/add`,
+      this.rootUrl + `/add`,
       __body,
       {
         headers: __headers,
@@ -78,7 +86,8 @@ class UserRestControllerService extends __BaseService {
     let __body: any = null;
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/users/all`,
+      //this.rootUrl + `/users/all`,
+      this.rootUrl + `/all`,
       __body,
       {
         headers: __headers,
@@ -115,7 +124,8 @@ class UserRestControllerService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'DELETE',
-      this.rootUrl + `/users/delete/${encodeURIComponent(String(userId))}`,
+      //this.rootUrl + `/users/delete/${encodeURIComponent(String(userId))}`,
+      this.rootUrl + `/delete/${encodeURIComponent(String(userId))}`,
       __body,
       {
         headers: __headers,
@@ -153,7 +163,8 @@ class UserRestControllerService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/users/id/${encodeURIComponent(String(userId))}`,
+      //this.rootUrl + `/users/id/${encodeURIComponent(String(userId))}`,
+      this.rootUrl + `/id/${encodeURIComponent(String(userId))}`,
       __body,
       {
         headers: __headers,
@@ -191,7 +202,8 @@ class UserRestControllerService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/users/num/${encodeURIComponent(String(personalNumber))}`,
+      //this.rootUrl + `/users/num/${encodeURIComponent(String(personalNumber))}`,
+      this.rootUrl + `/num/${encodeURIComponent(String(personalNumber))}`,
       __body,
       {
         headers: __headers,
@@ -235,7 +247,8 @@ class UserRestControllerService extends __BaseService {
     __body = params.theUser;
     let req = new HttpRequest<any>(
       'PUT',
-      this.rootUrl + `/users/update/${encodeURIComponent(String(params.userId))}`,
+      //this.rootUrl + `/users/update/${encodeURIComponent(String(params.userId))}`,
+      this.rootUrl + `/update/${encodeURIComponent(String(params.userId))}`,
       __body,
       {
         headers: __headers,
