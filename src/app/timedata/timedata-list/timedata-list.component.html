@@ -16,7 +16,8 @@
         и предлагает заменить на Indexer Access синтаксис (см.ниже),
         но вывод работает и в такой форму как: {{timedata.userId}};
     -->
-    <tr *ngFor="let timedata of timedatas">
+    <!--<tr *ngFor="let timedata of timedatas">-->
+    <tr *ngFor="let timedata of timedatas.slice(0,3)">
       <td>{{timedata.id}}</td>
       <td>{{timedata.date}}</td>
       <!--<td>{{timedata.userId}}</td>-->
